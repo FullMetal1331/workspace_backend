@@ -1050,4 +1050,8 @@ app.post('/signout', (req, res) => {
 	.catch((err) => res.status(400).json('error in updating'));
 })
 
+app.get('/', (req, res)=>{
+	res.send('Workspace Backend');
+})
+
 app.listen(process.env.PORT || 3000);
