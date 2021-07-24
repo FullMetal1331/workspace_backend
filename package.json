@@ -24,6 +24,7 @@
     "mailparser": "^2.7.7",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.8",
+    "nodemon": "^2.0.2",
     "pg": "^7.17.1",
     "twilio": "^3.39.3"
   }
