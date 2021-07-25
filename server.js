@@ -11,7 +11,6 @@ var MailParser = require("mailparser").MailParser;
 var Promise = require("bluebird");
 const db = require('knex')({
   client: 'pg',
-  version: '7.2',
   connection: {
     connectionString : process.env.DATABASE_URL,
     ssl : true,
@@ -735,7 +734,7 @@ app.post('/signin', (req, res) =>{
 });
 
 //register
-app.post('/register', (req, res) => {
+app.post(`/register`, (req, res) => {
 	const { email, name, password } = req.body;
 	
 	if(!name || !email || !password)
@@ -797,7 +796,7 @@ app.post('/register', (req, res) => {
 		            })
 		        })
 		    })
-			.then(user =>{res.json(realUser);})
+			.then(user =>{res.status(200).json(realUser);})
 		  })
 		.then(trx.commit)
 		.catch(trx.rollback)
