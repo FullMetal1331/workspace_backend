@@ -772,6 +772,7 @@ app.post(`/register`, (req, res) => {
 	//console.log(email, name, password);
 	
 	db.transaction(trx => {
+		console.log('inside transaction');
 		trx.insert({ hash: hash, email: email}).into('login')
 		  .returning('email')
 		  .then(loginEmail => {return trx('users').returning('*').insert({email: loginEmail[0],name: name})
